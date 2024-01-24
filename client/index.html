@@ -59,6 +59,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const serverURL = 'https://fuzzy-dollop-x479qqxj59whp4jq-5000.app.github.dev';
             const expenseForm = document.getElementById('expense-form');
             const descriptionInput = document.getElementById('description');
             const amountInput = document.getElementById('amount');
@@ -90,13 +91,13 @@
             }
         
             function addExpense(expense) {
-                fetch('http://localhost:5000/add-expense', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(expense),
-                })
+                fetch(`${serverURL}/add-expense`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(expense),
+    })
                 .then(response => response.json())
                 .then(data => {
                     addExpenseToList(data.description, data.amount);
@@ -106,7 +107,9 @@
             }
         
             function fetchExpenses() {
-                fetch('http://localhost:5000/expenses')
+                fetch(`${serverURL}/expenses`, {
+        method: 'GET',
+    })
                     .then(response => response.json())
                     .then(data => {
                         // Clear the list and render the updated expenses
