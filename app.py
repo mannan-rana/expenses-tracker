@@ -2,9 +2,8 @@ from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='static')
-CORS(app)  # This line enables CORS for all routes
+CORS(app)  
 
-# In-memory storage for expenses
 expenses = []
 
 

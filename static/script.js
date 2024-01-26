@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .attr('y', d => y(d.amount))
             .attr('height', d => height - y(d.amount))
             .attr('fill', (d, i) => colorScale(i))
+            //i try to add hover funtion when user hover the chart it show the budget of that item but its not working well .i try my best ro fix it.
             .on('mouseover', function(d) {
                 const tooltip = d3.select('#tooltip');
                 tooltip.transition().duration(200).style('opacity', .9);
@@ -105,13 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .style('left', (d3.event.pageX) + 'px')
                     .style('top', (d3.event.pageY - 28) + 'px');
             })
-            .on('mouseover', function(d) {
-                const tooltip = d3.select('#tooltip');
-                tooltip.transition().duration(200).style('opacity', .9);
-                tooltip.html(`Amount: ${d.data.amount} Є`) // Accessing amount under data
-                    .style('left', (d3.event.pageX) + 'px')
-                    .style('top', (d3.event.pageY - 28) + 'px');
-            })
+            
             
         barGroup.append('g')
             .attr('class', 'x-axis')
@@ -175,13 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
         arcs.append('path')
             .attr('d', arc)
             .attr('fill', (d, i) => colorScale(i % 10))
+
+            //     //i try to add hover funtion when user hover the chart it show the budget of that item but its not working well .i try my best ro fix it.
             .on('mouseover', function(d) {
                 const tooltip = d3.select('#tooltip');
                 tooltip.transition().duration(200).style('opacity', .9);
-                tooltip.html(`Amount: ${d.data.amount} Є`) // Accessing amount under data
+                tooltip.html(`Amount: ${d.data.amount} Є`)
                     .style('left', (d3.event.pageX) + 'px')
                     .style('top', (d3.event.pageY - 28) + 'px');
             })
+
             .on('mouseout', function(d) {
                 const tooltip = d3.select('#tooltip');
                 tooltip.transition().duration(500).style('opacity', 0);
