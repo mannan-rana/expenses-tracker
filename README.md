@@ -14,7 +14,7 @@ This web application serves as a basic expense monitor, allowing users to add, v
 
 2. **Storing Data:** The Flask backend (`app.py`) receives the expense data from the POST request, appends it to the `expenses` list, effectively storing the new expense data in memory.
 
-3. **Displaying Expenses:** The frontend fetches the list of expenses from the backend using a GET request to the `/expenses` endpoint. The fetched data is then displayed in a list format on the webpage.
+3. **Displaying Expenses:** The frontend fetches the list of expenses from the backend using a GET request to the `/expenses` endpoint. The fetched data in the json format on the webpage.
 
 4. **Visualizing Expenses:** Utilizing D3.js, the frontend dynamically renders visualizations of the expense data, providing insights into spending habits through bar and pie charts.
 
