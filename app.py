@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder='client')
+app = Flask(__name__, static_folder='static')
 CORS(app)  # This line enables CORS for all routes
 
 # In-memory storage for expenses
@@ -23,4 +23,4 @@ def get_expenses():
     return jsonify(expenses)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(port=5000, debug=True)
